@@ -34,7 +34,7 @@ public class BookingController {
         ));
     }
 
-    @GetMapping("/v1/bookings/{bookingId}")
+    @GetMapping("/v1/bookings/{id}")
     public ResponseEntity<BookingVM> getBooking(@PathVariable(value = "id") Long id) {
 
         BookingDTO booking = bookingService.getBookingById(id);

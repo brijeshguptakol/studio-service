@@ -28,7 +28,7 @@ public class ClassController {
         return ResponseEntity.ok(new CreateClassResponse(message));
     }
 
-    @GetMapping("/v1/classes/{bookingId}")
+    @GetMapping("/v1/classes/{id}")
     public ResponseEntity<ClassVM> getClass(@PathVariable(value = "id") Long id) {
 
         ClassDTO classDTO = classService.getClassById(id);
