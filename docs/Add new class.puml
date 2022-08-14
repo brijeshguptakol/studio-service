@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant "Client" as User
+participant "Class API" as API
+participant "Class Service" as SERVICE
+participant "Class Validator" as VAL
+participant "Class Repository" as DB
+
+User -> API: POST /v1/classes
+activate User
+activate API
+API -> SERVICE: Create class
+activate SERVICE
+SERVICE -> VAL: Validate request
+activate VAL
+VAL -> SERVICE: success
+deactivate VAL
+
+SERVICE -> DB: save Class entity
+activate DB
+DB -> SERVICE: return ID of created Class
+deactivate DB
+SERVICE -> API: return ID of created Class
+deactivate SERVICE
+API -> User: return ID of created Class
+deactivate API
+deactivate User
+@enduml

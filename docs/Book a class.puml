@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant "Client" as User
+participant "Booking API" as API
+participant "Booking Service" as SERVICE
+participant "Booking Validator" as VAL
+participant "Booking Repository" as DB
+
+User -> API: POST /v1/bookings
+activate User
+activate API
+API -> SERVICE: Book a class
+activate SERVICE
+SERVICE -> VAL: Validate Booking request
+activate VAL
+VAL -> SERVICE: success
+deactivate VAL
+
+SERVICE -> DB: save Booking entity
+activate DB
+DB -> SERVICE: return ID of created Booking
+deactivate DB
+SERVICE -> API: return ID of created Booking
+deactivate SERVICE
+API -> User: return ID of created Booking
+deactivate API
+deactivate User
+@enduml
