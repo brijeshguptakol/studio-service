@@ -25,7 +25,7 @@ DB -> SERVICE: return ID of created Booking
 deactivate DB
 SERVICE -> API: return ID of created Booking
 deactivate SERVICE
-API -> User: return ID of created Booking
+API -> User: return details of created Booking
 deactivate API
 deactivate User
 @enduml
