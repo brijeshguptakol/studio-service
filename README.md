@@ -18,6 +18,8 @@ POST /v1/bookings - To make a booking for a particular class on a particular dat
 GET /v1/bookings/{id} - To get details of a booking by booking id.
 ```
 
-#how-to-run-it-locally
+## How to run it locally
 To run the application, we need Java 17 and an IDE (say InteliJ Idea)
-To run locally, just run the (StudioApplication)[https://github.com/brijeshguptakol/studio-service/blob/70b549dd100377473b3b4b7b2b431de7f80a7c5f/src/main/java/com/brijesh/studio/StudioApplication.java#L9]
+To run locally, just run the [StudioApplication](https://github.com/brijeshguptakol/studio-service/blob/70b549dd100377473b3b4b7b2b431de7f80a7c5f/src/main/java/com/brijesh/studio/StudioApplication.java#L9)
+
+Use the Postman collection [here](https://github.com/brijeshguptakol/studio-service/tree/main/src/main/java/com/brijesh/studio/web/postman) to execute the APIs
