@@ -12,11 +12,17 @@ POST /v1/classes - To create a class with bare minimum information
 GET /v1/classes/{id} - To get details of a class by id of the class
 ```
 
+![image](https://user-images.githubusercontent.com/13299369/184538914-e4b81936-8ff9-4d7a-8578-65546b83dac2.png)
+
+
 Bookings
 ```
 POST /v1/bookings - To make a booking for a particular class on a particular date.
 GET /v1/bookings/{id} - To get details of a booking by booking id.
 ```
+
+![image](https://user-images.githubusercontent.com/13299369/184538923-69c9d228-d9c9-48c6-ba82-a7aa8a061928.png)
+
 
 ## How to run it locally
 To run the application, we need Java 17 and an IDE (say InteliJ Idea)
