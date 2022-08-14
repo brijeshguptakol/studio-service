@@ -12,7 +12,7 @@ POST /v1/classes - To create a class with bare minimum information
 GET /v1/classes/{id} - To get details of a class by id of the class
 ```
 
-![image](https://user-images.githubusercontent.com/13299369/184538914-e4b81936-8ff9-4d7a-8578-65546b83dac2.png)
+![image](https://github.com/brijeshguptakol/studio-service/blob/main/docs/diagrams/Add%20new%20class.png)
 
 
 Bookings
@@ -21,7 +21,7 @@ POST /v1/bookings - To make a booking for a particular class on a particular dat
 GET /v1/bookings/{id} - To get details of a booking by booking id.
 ```
 
-![image](https://user-images.githubusercontent.com/13299369/184538923-69c9d228-d9c9-48c6-ba82-a7aa8a061928.png)
+![image](https://github.com/brijeshguptakol/studio-service/blob/main/docs/diagrams/Book%20a%20class.png)
 
 
 ## How to run it locally
