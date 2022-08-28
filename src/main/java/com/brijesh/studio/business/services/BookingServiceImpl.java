@@ -8,6 +8,7 @@ import com.brijesh.studio.business.repository.entities.Booking;
 import com.brijesh.studio.business.validators.BookingValidator;
 import com.brijesh.studio.business.repository.BookingRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -29,6 +30,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    @Cacheable(value = "booking", key = "id")
     public BookingDTO getBookingById(Long id){
         return findBookingById(id);
     }
@@ -44,6 +46,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     private BookingDTO findBookingById(Long id){
+        System.out.println("Requesting from Repository");
         return bookingRepository
                 .findById(id)
                 .map(BookingDTOMapper.INSTANCE::toDTO)

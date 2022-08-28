@@ -3,11 +3,11 @@ package com.brijesh.studio.business.services;
 import com.brijesh.studio.business.models.ClassDTO;
 import com.brijesh.studio.business.models.mappers.ClassDTOMapper;
 import com.brijesh.studio.business.repository.entities.Class;
-import com.brijesh.studio.business.utils.CurrentDateUtil;
 import com.brijesh.studio.business.validators.ClassValidator;
 import com.brijesh.studio.business.exceptions.ClassNotFoundException;
 import com.brijesh.studio.business.repository.ClassRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -26,6 +26,7 @@ class ClassServiceImpl implements ClassService{
     }
 
     @Override
+    @Cacheable(value = "class")
     public ClassDTO getClassById(Long id) {
         return findClassById(id);
     }
@@ -33,6 +34,7 @@ class ClassServiceImpl implements ClassService{
 
     //DB Calls
     private ClassDTO findClassById(Long id){
+        System.out.println("Requesting from Repository");
         return classRepository
                 .findById(id)
                 .map(ClassDTOMapper.INSTANCE::toDTO)
