@@ -24,6 +24,7 @@ public class ClassServiceTest {
     private static final String CLASS_NAME = "Some class";
     private static final int MAX_CAPACITY =  10;
     private static final Long CLASS_ID =  1L;
+    private static final Class CLASS =  Class.builder().id(CLASS_ID).build();
 
     private static final Date CURRENT_DATE = new Date();
 
@@ -42,7 +43,7 @@ public class ClassServiceTest {
 
     @Test
     void save_withValidDate_returnsSavedId(){
-        when(classRepository.save(any(Class.class))).thenReturn(CLASS_ID);
+        when(classRepository.save(any(Class.class))).thenReturn(CLASS);
         ClassDTO classDTO = createClass();
         Long classID = service.createClass(classDTO);
 

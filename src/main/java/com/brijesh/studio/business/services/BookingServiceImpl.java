@@ -4,10 +4,13 @@ import com.brijesh.studio.business.exceptions.ClassNotFoundException;
 import com.brijesh.studio.business.models.BookingDTO;
 import com.brijesh.studio.business.models.ClassDTO;
 import com.brijesh.studio.business.models.mappers.BookingDTOMapper;
+import com.brijesh.studio.business.repository.entities.Booking;
 import com.brijesh.studio.business.validators.BookingValidator;
 import com.brijesh.studio.business.repository.BookingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 @Service
 @RequiredArgsConstructor
@@ -33,7 +36,11 @@ public class BookingServiceImpl implements BookingService {
 
     //DB Calls
     private Long saveBooking(BookingDTO bookingDTO){
-        return bookingRepository.save(BookingDTOMapper.INSTANCE.toEntity(bookingDTO));
+        Booking recordToSave = BookingDTOMapper.INSTANCE.toEntity(bookingDTO);
+        recordToSave.setCreatedBy("admin");
+        recordToSave.setCreatedWhen(new Date());
+        Booking savedRecord =  bookingRepository.save(recordToSave);
+        return savedRecord.getId();
     }
 
     private BookingDTO findBookingById(Long id){

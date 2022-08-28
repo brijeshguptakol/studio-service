@@ -1,28 +1,45 @@
 package com.brijesh.studio.business.repository.entities;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
+import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
-@Getter
+import static javax.persistence.GenerationType.IDENTITY;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
-//@Entity
-//@Table(name = "booking")
+@Table(name = "bookings")
 public class Booking {
 
-    long id;
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    Long id;
 
-    private final Long userId;
-    private final String userFullName;
-    private final Long classId;
-    private final String className;
-    private final Date bookingDate;
+    @Column(nullable = false)
+    private Long userId;
 
-    private final String createdBy;
-    private final Date createdWhen;
-    private final String updatedBy;
-    private final Date updatedWhen;
+    private String userFullName;
+
+    @Column(nullable = false)
+    private Long classId;
+    private String className;
+
+    @Column(nullable = false)
+    private Date bookingDate;
+
+    @Column(nullable = false)
+    private String createdBy;
+    @Column(nullable = false)
+    private Date createdWhen;
+
+    private String updatedBy;
+    private Date updatedWhen;
 
 
     public void setId(Long id){
